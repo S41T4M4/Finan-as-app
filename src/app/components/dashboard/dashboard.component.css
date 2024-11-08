@@ -1,0 +1,101 @@
+/* Animação gradual de fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Move o conteúdo para baixo inicialmente */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Traz o conteúdo para a posição original */
+  }
+}
+
+.home {
+  height: 100vh;
+  background: url('/assets/home.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; 
+  padding: 0 30%; 
+}
+
+.home-content {
+  max-width: 600px;
+  text-align: right;
+  opacity: 0; /* Começa invisível */
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.2s; /* Pequeno atraso para suavizar */
+}
+
+.home-content h1 {
+  
+  font-size: 56px;
+  color: white;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.4s; /* Atraso para o título */
+}
+
+.home-content h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: aqua;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.6s; /* Atraso maior para o subtítulo */
+}
+
+.home-content p {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  margin: 20px 0 40px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.8s; /* O parágrafo aparece mais tarde */
+}
+
+.home-content .btn-box {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 50px;
+  margin-left: auto;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 1s; /* Os botões aparecem por fim */
+}
+
+.btn-box button {
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  color: rgb(255, 255, 255);
+  border: 1px solid #00abf0;
+  transition: color 0.3s;
+}
+
+.btn-box button:hover {
+  cursor: pointer;
+  color: #ffffff; /* Cor do texto ao passar o mouse */
+}
+
+.btn-box button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #00abf0;
+  z-index: -1;
+  transition: width 0.5s;
+}
+
+.btn-box button:hover::before {
+  width: 100%;
+}

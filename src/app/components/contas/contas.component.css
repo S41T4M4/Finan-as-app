@@ -1,0 +1,106 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Animação gradual de fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Move o conteúdo para baixo inicialmente */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Traz o conteúdo para a posição original */
+  }
+}
+
+/* Estilos gerais do dashboard */
+.dashboard {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: url('/assets/1372963.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column; /* Alinha o título e os cards em coluna */
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+  text-align: center;
+  color: white; /* Ajuste de cor opcional */
+  margin-bottom: 20px; /* Espaço entre o título e os cards */
+  opacity: 0; /* Inicialmente invisível */
+  animation: fadeIn 1s ease-in-out forwards;
+  animation-delay: 0.2s; /* Pequeno atraso para o título */
+}
+
+/* Estilo para os cards de contas com animação */
+.conta-item {
+  width: 20%;
+  padding: 10px;
+  margin: 8px auto;
+  font-size: 1em;
+  border: 2px solid black;
+  background-color: #8a1af3;
+  border-radius: 6px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.712);
+  transition: transform 0.3s ease;
+  color: rgb(255, 255, 255);
+  font-family: 'Poppins', sans-serif;
+
+  /* Centraliza o conteúdo dentro do card */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.conta-item h3 {
+  margin-bottom: 10px; /* Espaço entre o título e o botão */
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #8a1af3;
+  color: white;
+  font-size: 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: transparent;
+}
+
+.conta-detalhes {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #ddd;
+  font-size: 0.9em;
+}
+
+.conta-detalhes p {
+  font-family: 'Poppins', sans-serif;
+  margin: 5px 0;
+}
+
+.conta-detalhes a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.conta-detalhes a:hover {
+  text-decoration: underline;
+}

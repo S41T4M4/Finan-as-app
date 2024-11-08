@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+<div class="dashboard">
+  <h2>Minhas Contas</h2>
+  <div *ngIf="contas.length === 0">Carregando contas...</div>
+
+  <!-- Lista de contas -->
+  <div *ngFor="let conta of contas" class="conta-item">
+    <h3>{{ conta.nome_conta }}</h3>
+
+    <!-- Botão para expandir/colapsar -->
+    <button (click)="toggleExpand(conta)">
+      <span *ngIf="!conta.expandida">▼</span>
+      <span *ngIf="conta.expandida">▲</span>
+    </button>
+
+    <!-- Detalhes do saldo, exibido apenas quando expandido -->
+    <div *ngIf="conta.expandida" class="conta-detalhes">
+      <p><strong>Saldo Atual:</strong> R$ {{ conta.saldo }}</p>
+      <a routerLink="/ver-transferencia">Ver Transferências</a>
+    </div>
+  </div>
+</div>
