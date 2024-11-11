@@ -16,7 +16,41 @@
     <!-- Detalhes do saldo, exibido apenas quando expandido -->
     <div *ngIf="conta.expandida" class="conta-detalhes">
       <p><strong>Saldo Atual:</strong> R$ {{ conta.saldo }}</p>
-      <a routerLink="/ver-transferencia">Ver Transferências</a>
+      <button (click)="getTransacoesByConta()">Ver transferências</button>
+      <button (click)="mostrarFormulario()">Adicionar Transferência</button>
     </div>
+  </div>
+
+  <!-- Card de transferências -->
+  <div class="all-transfers" *ngIf="isTrue">
+    <h3>Transações</h3>
+    <div *ngFor="let transacao of transacaoes" class="transacao-item">
+      <p><strong>Tipo:</strong> {{ transacao.tipo }}</p>
+      <p><strong>Valor:</strong> R$ {{ transacao.valor | number:'1.2-2' }}</p>
+      <p><strong>Data:</strong> {{ transacao.data_transacao | date:'dd/MM/yyyy' }}</p>
+    </div>
+  </div>
+
+  <!-- Formulário de Nova Transferência -->
+  <div *ngIf="formularioVisivel" class="formulario-nova-transacao">
+    <form (ngSubmit)="addTransacao()">
+      <label>
+        Tipo:
+        <input type="text" name="tipo" [(ngModel)]="novaTransacao.tipo" required />
+      </label>
+      <label>
+        Valor:
+        <input type="number" name="valor" [(ngModel)]="novaTransacao.valor" required />
+      </label>
+      <label>
+        Data:
+        <input type="date" name="data_transacao" [(ngModel)]="novaTransacao.data_transacao" required />
+      </label>
+      <label>
+        ID Conta : 
+        <input type="text" name="id_conta" [(ngModel)]="novaTransacao.id_conta" required />
+      </label>
+      <button type="submit">Adicionar Transação</button>
+    </form>
   </div>
 </div>

@@ -20,13 +20,17 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ContasComponent } from './components/contas/contas.component';
 import { MenuComponent } from './components/menu/menu.component';
-
+import { MyTransfersComponent } from './components/my-transfers/my-transfers.component';
+import { MetasFinanceirasComponent } from './components/metas-financeiras/metas-financeiras.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ContasComponent,
-    MenuComponent
+    MenuComponent,
+    MyTransfersComponent,
+    MetasFinanceirasComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import { MenuComponent } from './components/menu/menu.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
-    NgxChartsModule
+    NgxChartsModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),
